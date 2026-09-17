@@ -1,6 +1,7 @@
 import assert from "node:assert/strict";
 import { access, readFile } from "node:fs/promises";
 import test from "node:test";
+import vm from "node:vm";
 
 const root = new URL("../", import.meta.url);
 const read = (path) => readFile(new URL(path, root), "utf8");
@@ -61,4 +62,38 @@ test("stylesheet includes responsive and accessibility safeguards", async () => 
   assert.match(css, /@media[^{}]*max-width:\s*800px/i);
   assert.match(css, /prefers-reduced-motion:\s*reduce/i);
   assert.match(css, /:focus-visible/);
+});
+
+test("Spanish and English keys match translated markup", async () => {
+  const html = await read("index.html");
+  const source = await read("locales.js");
+  const context = { window: {} };
+  vm.runInNewContext(source, context);
+  const { es, en } = context.window.RAYUELA_LOCALES;
+
+  assert.deepEqual(Object.keys(es).sort(), Object.keys(en).sort());
+
+  const textKeys = [...html.matchAll(/data-i18n="([^"]+)"/g)].map(
+    ([, key]) => key,
+  );
+  const attributeKeys = [
+    ...html.matchAll(/data-i18n-attr="[^:"]+:([^"]+)"/g),
+  ].map(([, key]) => key);
+  for (const key of [...textKeys, ...attributeKeys]) {
+    assert.equal(typeof es[key], "string", `missing Spanish key: ${key}`);
+    assert.equal(typeof en[key], "string", `missing English key: ${key}`);
+  }
+});
+
+test("behavior is local, persistent, and progressively enhanced", async () => {
+  const html = await read("index.html");
+  const script = await read("script.js");
+
+  assert.match(html, /src="\.\/locales\.js"/);
+  assert.match(html, /src="\.\/script\.js"/);
+  assert.match(script, /localStorage\.getItem/);
+  assert.match(script, /document\.documentElement\.lang/);
+  assert.match(script, /classList\.toggle\("js"/);
+  assert.match(script, /IntersectionObserver/);
+  assert.doesNotMatch(script, /from\s+["']|require\s*\(/);
 });
