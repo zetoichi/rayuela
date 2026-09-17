@@ -167,7 +167,26 @@
             <p class="eyebrow" data-i18n="booking.eyebrow">Tu lugar en Buenos Aires</p>
             <h2 id="booking-title" data-i18n="booking.title">¿Jugamos a la Rayuela?</h2>
             <p data-i18n="booking.body">Consultá disponibilidad, tipos de habitación y tarifas actualizadas en Hostelworld.</p>
-            <a class="button" href="https://www.hostelworld.com/hostels/p/43414/rayuela-hostel-boutique/" target="_blank" rel="noopener noreferrer" data-i18n="booking.button">Consultar disponibilidad</a>
+            <form class="availability-form" action="https://www.hostelworld.com/hostels/p/43414/rayuela-hostel-boutique/" method="get" target="_blank" rel="noopener noreferrer">
+              <label class="availability-field">
+                <span data-i18n="booking.checkIn">Entrada</span>
+                <input type="date" name="from" required>
+              </label>
+              <label class="availability-field">
+                <span data-i18n="booking.checkOut">Salida</span>
+                <input type="date" name="to" required>
+              </label>
+              <label class="availability-field">
+                <span data-i18n="booking.guests">Huéspedes</span>
+                <select name="guests">
+                  <option value="1" data-i18n="booking.guestOne">1 huésped</option>
+                  <option value="2" data-i18n="booking.guestTwo">2 huéspedes</option>
+                  <option value="3" data-i18n="booking.guestThree">3 huéspedes</option>
+                  <option value="4" data-i18n="booking.guestFour">4 huéspedes</option>
+                </select>
+              </label>
+              <button class="button" type="submit" data-i18n="booking.button">Consultar disponibilidad</button>
+            </form>
           </div>
         </div>
       </section>

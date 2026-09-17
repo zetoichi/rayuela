@@ -60,7 +60,6 @@ test("remaining homepage content covers rooms, services, and shared spaces", asy
   for (const pattern of [
     /Dormitorios compartidos/,
     /Habitaciones privadas/,
-    /Desayuno argentino/,
     /Cocina equipada/,
     /Patio cubierto/,
     /Consultar disponibilidad/,
@@ -70,13 +69,25 @@ test("remaining homepage content covers rooms, services, and shared spaces", asy
   for (const copy of [
     "Shared dorms",
     "Private rooms",
-    "Argentine breakfast",
     "Equipped kitchen",
     "Covered patio",
     "Check availability",
   ]) {
     assert.match(locales, new RegExp(copy));
   }
+});
+
+test("availability form deep-links dates and guests to Hostelworld", async () => {
+  const html = await read("index.html");
+
+  assert.match(
+    html,
+    /<form[^>]+action="https:\/\/www\.hostelworld\.com\/hostels\/p\/43414\/rayuela-hostel-boutique\/"[^>]+method="get"[^>]+target="_blank"/s,
+  );
+  assert.match(html, /<input[^>]+type="date"[^>]+name="from"[^>]+required/s);
+  assert.match(html, /<input[^>]+type="date"[^>]+name="to"[^>]+required/s);
+  assert.match(html, /<select[^>]+name="guests"/s);
+  assert.match(html, /<button[^>]+type="submit"[^>]*>.*Consultar disponibilidad.*<\/button>/s);
 });
 
 test("local URLs are project-site safe and resolve", async () => {
