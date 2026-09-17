@@ -10,6 +10,8 @@
     <meta property="og:image" content="./assets/PX_Y1355-VSCO.jpg">
     <title>Rayuela Hostel Boutique | San Telmo, Buenos Aires</title>
     <link rel="stylesheet" href="./style.css">
+    <script src="./locales.js" defer></script>
+    <script src="./script.js" defer></script>
   </head>
   <body>
     <header class="site-header">
@@ -21,6 +23,8 @@
         <div class="nav-menu" id="nav-menu">
           <div class="nav-links">
             <a href="#inicio" data-i18n="nav.home">Inicio</a>
+            <a href="#habitaciones" data-i18n="nav.rooms">Habitaciones</a>
+            <a href="#servicios" data-i18n="nav.services">Servicios</a>
             <a href="#ubicacion" data-i18n="nav.location">Ubicación</a>
           </div>
           <div class="language-switcher" role="group" aria-label="Idioma / Language">
@@ -74,6 +78,102 @@
         </blockquote>
       </section>
 
+      <section class="section rooms" id="habitaciones" aria-labelledby="rooms-title">
+        <div class="container">
+          <div class="section-heading reveal">
+            <p class="eyebrow" data-i18n="rooms.eyebrow">Dormí bien, viajá mejor</p>
+            <h2 id="rooms-title" data-i18n="rooms.title">Habitaciones</h2>
+            <p data-i18n="rooms.body">Elegí entre dormitorios compartidos y habitaciones privadas. Todos los espacios conservan el carácter de la casa y están preparados para que descanses con comodidad.</p>
+          </div>
+          <div class="room-grid">
+            <article class="room-card reveal">
+              <img src="./assets/PX_Y1377-VSCO.jpg" alt="Dormitorio compartido con camas cucheta" loading="lazy" data-i18n-attr="alt:images.dorm">
+              <div class="room-card-copy">
+                <h3 data-i18n="rooms.dormTitle">Dormitorios compartidos</h3>
+                <p data-i18n="rooms.dormBody">Una opción práctica para conocer a otros viajeros, con lockers individuales, ropa de cama y colchones de alta densidad.</p>
+              </div>
+            </article>
+            <article class="room-card reveal">
+              <img src="./assets/PX_Y1404-VSCO.jpg" alt="Habitación privada de Rayuela Hostel" loading="lazy" data-i18n-attr="alt:images.privateRoom">
+              <div class="room-card-copy">
+                <h3 data-i18n="rooms.privateTitle">Habitaciones privadas</h3>
+                <p data-i18n="rooms.privateBody">Espacios simples y tranquilos para quienes buscan más intimidad sin perder la vida compartida del hostel.</p>
+              </div>
+            </article>
+            <article class="room-card reveal">
+              <img src="./assets/PX_Y1381-VSCO.jpg" alt="Habitación luminosa con cama doble" loading="lazy" data-i18n-attr="alt:images.doubleRoom">
+              <div class="room-card-copy">
+                <h3 data-i18n="rooms.comfortTitle">Comodidad para descansar</h3>
+                <p data-i18n="rooms.comfortBody">Ambientes amplios y luminosos, con sábanas, frazadas y el encanto de los pisos originales de madera.</p>
+              </div>
+            </article>
+            <article class="room-card reveal">
+              <img src="./assets/PX_Y1399-2-VSCO.jpg" alt="Baño de Rayuela Hostel" loading="lazy" data-i18n-attr="alt:images.bathroom">
+              <div class="room-card-copy">
+                <h3 data-i18n="rooms.careTitle">Limpieza y cuidado</h3>
+                <p data-i18n="rooms.careBody">La limpieza, la seguridad y el cuidado cotidiano de la casa son parte central de la experiencia Rayuela.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section services" id="servicios" aria-labelledby="services-title">
+        <div class="container services-grid">
+          <div class="section-copy reveal">
+            <p class="eyebrow" data-i18n="services.eyebrow">Incluido en tu estadía</p>
+            <h2 id="services-title" data-i18n="services.title">Servicios</h2>
+            <p data-i18n="services.body">Todo lo esencial para que disfrutes Buenos Aires y te sientas como en casa desde el primer día.</p>
+          </div>
+          <ul class="service-list reveal">
+            <li data-i18n="services.breakfast">Desayuno argentino</li>
+            <li data-i18n="services.kitchen">Cocina equipada</li>
+            <li data-i18n="services.wifi">Wi-Fi</li>
+            <li data-i18n="services.linen">Sábanas y frazadas</li>
+            <li data-i18n="services.climate">Climatización en las habitaciones</li>
+            <li data-i18n="services.lockers">Lockers individuales</li>
+            <li data-i18n="services.commonRoom">Salón de juegos y TV</li>
+            <li data-i18n="services.staff">Orientación turística del staff</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section spaces" id="espacios" aria-labelledby="spaces-title">
+        <div class="container">
+          <div class="section-heading reveal">
+            <p class="eyebrow" data-i18n="spaces.eyebrow">Una casa para compartir</p>
+            <h2 id="spaces-title" data-i18n="spaces.title">Espacios compartidos</h2>
+            <p data-i18n="spaces.body">Leé, cociná, desayuná o quedate conversando. Los espacios comunes son el corazón de Rayuela.</p>
+          </div>
+          <div class="space-grid">
+            <figure class="space-card reveal">
+              <img src="./assets/PX_Y1347-corregida-VSCO.jpg" alt="Living y biblioteca de Rayuela Hostel" loading="lazy" data-i18n-attr="alt:images.sharedLounge">
+              <figcaption data-i18n="spaces.lounge">Living, biblioteca y juegos</figcaption>
+            </figure>
+            <figure class="space-card reveal">
+              <img src="./assets/PX_Y1365-VSCO.jpg" alt="Patio cubierto con mesas" loading="lazy" data-i18n-attr="alt:images.patio">
+              <figcaption data-i18n="spaces.patio">Patio cubierto</figcaption>
+            </figure>
+            <figure class="space-card reveal">
+              <img src="./assets/PX_Y1389-VSCO.jpg" alt="Cocina para huéspedes" loading="lazy" data-i18n-attr="alt:images.kitchen">
+              <figcaption data-i18n="spaces.kitchen">Cocina para huéspedes</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <section class="section booking" id="reservas" aria-labelledby="booking-title">
+        <div class="container booking-panel reveal">
+          <img src="./assets/PX_Y1349-VSCO.jpg" alt="Pasillo interior de la casa Rayuela" loading="lazy" data-i18n-attr="alt:images.house">
+          <div class="booking-copy">
+            <p class="eyebrow" data-i18n="booking.eyebrow">Tu lugar en Buenos Aires</p>
+            <h2 id="booking-title" data-i18n="booking.title">¿Jugamos a la Rayuela?</h2>
+            <p data-i18n="booking.body">Consultá disponibilidad, tipos de habitación y tarifas actualizadas en Hostelworld.</p>
+            <a class="button" href="https://www.hostelworld.com/hostels/p/43414/rayuela-hostel-boutique/" target="_blank" rel="noopener noreferrer" data-i18n="booking.button">Consultar disponibilidad</a>
+          </div>
+        </div>
+      </section>
+
       <section class="section location" id="ubicacion" aria-labelledby="location-title">
         <div class="container">
           <div class="section-heading reveal">
@@ -119,7 +219,5 @@
       </div>
       <div class="footer-wordmark" aria-hidden="true">Rayuela</div>
     </footer>
-    <script src="./locales.js"></script>
-    <script src="./script.js"></script>
   </body>
 </html>

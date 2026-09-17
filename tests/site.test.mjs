@@ -13,6 +13,10 @@ test("approved sections and contact details are present", async () => {
     /<main[\s>]/,
     /id="inicio"/,
     /id="experiencia"/,
+    /id="habitaciones"/,
+    /id="servicios"/,
+    /id="espacios"/,
+    /id="reservas"/,
     /id="ubicacion"/,
     /<footer[\s>]/,
     /Una casa que vas a sentir como tuya/,
@@ -32,6 +36,11 @@ test("approved assets and destinations are present", async () => {
     "PX_Y1350-corregida-VSCO.jpg",
     "PX_Y1365-VSCO.jpg",
     "PX_Y1368-VSCO.jpg",
+    "PX_Y1377-VSCO.jpg",
+    "PX_Y1381-VSCO.jpg",
+    "PX_Y1389-VSCO.jpg",
+    "PX_Y1399-2-VSCO.jpg",
+    "PX_Y1404-VSCO.jpg",
   ]) {
     assert.match(html, new RegExp(image.replaceAll(".", "\\.")));
   }
@@ -41,6 +50,33 @@ test("approved assets and destinations are present", async () => {
   );
   assert.match(html, /<iframe[^>]+loading="lazy"/s);
   assert.match(html, /google\.com\/maps\/search/);
+  assert.doesNotMatch(html, /USD\s*\d|4342-5951/);
+});
+
+test("remaining homepage content covers rooms, services, and shared spaces", async () => {
+  const html = await read("index.html");
+  const locales = await read("locales.js");
+
+  for (const pattern of [
+    /Dormitorios compartidos/,
+    /Habitaciones privadas/,
+    /Desayuno argentino/,
+    /Cocina equipada/,
+    /Patio cubierto/,
+    /Consultar disponibilidad/,
+  ]) {
+    assert.match(html, pattern);
+  }
+  for (const copy of [
+    "Shared dorms",
+    "Private rooms",
+    "Argentine breakfast",
+    "Equipped kitchen",
+    "Covered patio",
+    "Check availability",
+  ]) {
+    assert.match(locales, new RegExp(copy));
+  }
 });
 
 test("local URLs are project-site safe and resolve", async () => {
