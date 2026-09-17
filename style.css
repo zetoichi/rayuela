@@ -37,6 +37,8 @@ h2 { margin: 0; font-size: clamp(3rem, 7vw, 6.5rem); line-height: .95; }
 .language-switcher button { padding: .2rem; color: inherit; background: none; border: 0; cursor: pointer; opacity: .55; }
 .language-switcher button[aria-pressed="true"] { opacity: 1; text-decoration: underline; text-underline-offset: .25rem; }
 .nav-toggle { display: none; width: 44px; height: 44px; padding: 12px; color: inherit; background: none; border: 0; }
+.js .site-header:not(.is-scrolled) .nav-toggle { background: rgb(23 20 17 / 45%); border-radius: 999px; }
+.js .site-header.menu-open .nav-toggle { background: transparent; }
 .nav-toggle span { display: block; height: 1px; margin: 6px 0; background: currentcolor; }
 .button { display: inline-flex; align-items: center; justify-content: center; min-height: 52px; padding: .85rem 1.35rem; color: var(--cream); background: var(--ink); border: 1px solid var(--ink); border-radius: 999px; font-size: .85rem; font-weight: 700; text-decoration: none; transition: .2s ease; }
 .button:hover { color: var(--ink); background: var(--cream); transform: translateY(-2px); }

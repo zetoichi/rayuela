@@ -62,6 +62,10 @@ test("stylesheet includes responsive and accessibility safeguards", async () => 
   assert.match(css, /@media[^{}]*max-width:\s*800px/i);
   assert.match(css, /prefers-reduced-motion:\s*reduce/i);
   assert.match(css, /:focus-visible/);
+  assert.match(
+    css,
+    /\.js \.site-header:not\(\.is-scrolled\) \.nav-toggle\s*\{[^}]*background:/s,
+  );
 });
 
 test("Spanish and English keys match translated markup", async () => {
